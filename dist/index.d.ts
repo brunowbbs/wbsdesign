@@ -6,15 +6,21 @@ interface Props$1 extends InputHTMLAttributes<HTMLInputElement> {
 }
 declare function TextField(props: Props$1): JSX.Element;
 
+interface ButtonProps$1 {
+    text: string;
+    onClick: () => void;
+}
+declare const Button: ({ onClick, text }: ButtonProps$1) => JSX.Element;
+
 interface ButtonProps {
     text: string;
     onClick: () => void;
 }
-declare const Button: ({ onClick, text }: ButtonProps) => JSX.Element;
+declare const ChakraButton: ({ onClick, text }: ButtonProps) => JSX.Element;
 
 interface Props {
     text: string;
 }
 declare function App({ text }: Props): JSX.Element;
 
-export { Button, App as Text, TextField };
+export { Button, ChakraButton, App as Text, TextField };
