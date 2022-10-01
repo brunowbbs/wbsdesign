@@ -1,10 +1,10 @@
 /// <reference types="react" />
 import { InputHTMLAttributes } from 'react';
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+interface Props$1 extends InputHTMLAttributes<HTMLInputElement> {
     label: string;
 }
-declare function TextField(props: Props): JSX.Element;
+declare function TextField(props: Props$1): JSX.Element;
 
 interface ButtonProps {
     text: string;
@@ -12,4 +12,9 @@ interface ButtonProps {
 }
 declare const Button: ({ onClick, text }: ButtonProps) => JSX.Element;
 
-export { Button, TextField };
+interface Props {
+    text: string;
+}
+declare function App({ text }: Props): JSX.Element;
+
+export { Button, App as Text, TextField };
