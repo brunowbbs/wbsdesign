@@ -2,6 +2,11 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
+import { terser } from "rollup-plugin-terser";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+
+// Vamos importar o plugin que acabamos de instalar
+import postcss from "rollup-plugin-postcss";
 
 const packageJson = require("./package.json");
 
@@ -21,14 +26,22 @@ export default [
       },
     ],
     plugins: [
+      peerDepsExternal(),
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
+
+      // Vamos iniciar o plugin de postcss
+      postcss(),
+
+      terser(),
     ],
   },
   {
     input: "dist/esm/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
+    // E adicionar essa linha para ele entender a extensão .css
+    external: [/\.css$/],
   },
 ];
