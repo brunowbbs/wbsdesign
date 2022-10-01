@@ -1,3 +1,7 @@
-import React from "react";
-declare const Button: React.FC;
+/// <reference types="react" />
+interface ButtonProps {
+    text: string;
+    onClick: () => void;
+}
+declare const Button: ({ onClick, text }: ButtonProps) => JSX.Element;
 export default Button;

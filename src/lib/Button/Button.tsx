@@ -2,8 +2,15 @@ import { Button as ButtonAntd } from "antd";
 
 import React from "react";
 
-const Button: React.FC = () => (
-  <ButtonAntd type="primary">Primary ButtonAntd</ButtonAntd>
+interface ButtonProps {
+  text: string;
+  onClick: () => void;
+}
+
+const Button = ({ onClick, text }: ButtonProps) => (
+  <ButtonAntd onClick={onClick} type="primary">
+    {text}
+  </ButtonAntd>
 );
 
 export default Button;
