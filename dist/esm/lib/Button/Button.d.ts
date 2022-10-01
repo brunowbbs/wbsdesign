@@ -1,7 +1,3 @@
-/// <reference types="react" />
-export interface Props {
-    text: string;
-    onClick: () => void;
-}
-declare function Button(props: Props): JSX.Element;
+import React from "react";
+declare const Button: React.FC;
 export default Button;

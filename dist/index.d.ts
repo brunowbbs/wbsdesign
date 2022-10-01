@@ -1,15 +1,10 @@
-/// <reference types="react" />
-import { InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes } from 'react';
 
-interface Props$1 extends InputHTMLAttributes<HTMLInputElement> {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
     label: string;
 }
-declare function TextField(props: Props$1): JSX.Element;
+declare function TextField(props: Props): JSX.Element;
 
-interface Props {
-    text: string;
-    onClick: () => void;
-}
-declare function Button(props: Props): JSX.Element;
+declare const Button: React.FC;
 
 export { Button, TextField };
